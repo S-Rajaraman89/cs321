@@ -1,0 +1,9 @@
+U1 - Weekly Email - Sriram Rajaraman
+
+A precondition is that the user must specify a valid email. The server will email the user the most recent quiz grade for each quiz every week. Even if the user did not take a quiz that week, the server will still send an email with the latest quiz grades. If the user takes more than 1 quiz in a week, then the server will send an email of all the new quiz grades and the latest grade of all other quizzes. The email will be sent at the end of every week and when the server is still running. If the server is down for more than two weeks, then when it is back online, it will send one email for each week missed. The format of the email is pretty simple. On the top, the student’s name and date is written. In chronological order, a list of test names and scores are printed vertically.
+
+U2 - Login - Sriram Rajaraman
+
+There is the precondition that user already has their username and password. User will be prompted to enter their username and password. If they enter the information correctly, then they can proceed to other options like U6, U7,and U8. If they do not, they will be prompted multiple times until they get the login information correctly. If they forgot their login credentials, then they must contact the admin directly. A “mail:to” link to admin will be provided after the 3rd try. If the user is a teacher, then they login the same way but they have access to more options like U4 and U5.
+
+
