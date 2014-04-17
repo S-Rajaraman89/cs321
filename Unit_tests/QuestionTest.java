@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
  
 public class QuestionTest{
 
-	public static void main(String args[]){
+	
 		
 		//constructor
 		public void test1(){
@@ -46,6 +46,6 @@ public class QuestionTest{
 		}
 		
 		
-	}
+	
 
 }
