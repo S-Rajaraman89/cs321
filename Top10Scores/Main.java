@@ -1,8 +1,3 @@
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
-import java.util.Collections;
 import java.util.*;
 
 
@@ -66,6 +61,7 @@ public class Main {
       }
       DISCONNECT_FROM_GRADE_SERVER();
       System.out.println("Thank you for using the CS321 Quiz Game!");
+      System.exit(0);
    }
 
    public static void takeQuiz(){
@@ -195,7 +191,7 @@ public class Main {
          for(String a:allGrades){
          System.out.println("One of the grades "+a);
             if(a.contains(id)&&topten.size()<10){
-            System.out.println("Adding this string "+a);
+               System.out.println("Adding this string "+a);
                topten.add(a);
             }
          }
@@ -208,12 +204,13 @@ public class Main {
                   int grade2 = quiz2.lastIndexOf(",");
                   String gradeSubString1 = quiz1.substring(grade1);
                   String gradeSubString2 = quiz2.substring(grade2);
-                  return gradeSubString1.compareTo(gradeSubString2);
+                  return gradeSubString2.compareTo(gradeSubString1);
                }
             });
-      for(String s: topten){
-         System.out.println(s);
-      }
+        for(int x = 0; x<10; x++){
+            if(x>=topten.size()) break;
+            System.out.println(x+1+". "+topten.get(x));
+        }
    }
 	
    public static void CONNECT_TO_GRADE_SERVER(){

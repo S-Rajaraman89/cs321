@@ -1,8 +1,4 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -50,17 +46,22 @@ public class GradeServer implements Runnable{
 		try {
 			BufferedReader file = new BufferedReader(new FileReader("grades.txt"));
 			String line = null;
-			HashMap<String,String> newestData = new HashMap<String,String>();
+			//HashMap<String,String> newestData = new HashMap<String,String>();
+            ArrayList<String> data = new ArrayList<String>();
 			while ((line=file.readLine())!= null){
-				String itemId = line.substring(0,line.indexOf(","));
-				newestData.put(itemId, line);
+                System.out.println("Grade server line "+line);
+                //String itemId = line.substring(0,line.indexOf(","));
+				//newestData.put(itemId, line);
+                data.add(line);
 			}
 			file.close();
-			Iterator<String> i = newestData.keySet().iterator();
+			Iterator<String> i = data.iterator();
 			while (i.hasNext()){
-				String key = i.next().toString();
-				if (key.contains(id))
-					result.add(newestData.get(key));
+				String key = i.next();
+				if (key.contains(id)){
+                    System.out.println("adding this to return list "+key);
+                    result.add(key);
+                }
 			}
 		}catch (Exception e){
 			result.add(e.getMessage());
