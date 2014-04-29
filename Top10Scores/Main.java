@@ -219,10 +219,11 @@ public class Main {
 		// Sort the quizzes
 		Collections.sort(topten, new Comparator<String>() {
 			public int compare(String quiz1, String quiz2) {
-				int grade1 = quiz1.lastIndexOf(",");
-				int grade2 = quiz2.lastIndexOf(",");
-				String gradeSubString1 = quiz1.substring(grade1);
-				String gradeSubString2 = quiz2.substring(grade2);
+				int grade1 = quiz1.lastIndexOf(",")+1;
+				int grade2 = quiz2.lastIndexOf(",")+1;
+				Integer gradeSubString1 = Integer.parseInt(quiz1.substring(grade1));
+                Integer gradeSubString2 = Integer.parseInt(quiz2.substring(grade2));
+
 				return gradeSubString2.compareTo(gradeSubString1);
 			}
 		});
