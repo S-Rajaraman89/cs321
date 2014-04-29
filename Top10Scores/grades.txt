@@ -1,5 +1,10 @@
 U1 QUIZ1,2
 U1 QUIZ2,1
 U2 QUIZ1,2
+U1 QUIZ2,15
 U1 QUIZ2,11
+<<<<<<< HEAD
 U2 QUIZ1,8008
+=======
+Sun Mar 30 09:35:41 EDT 2014,U1,QUIZ2,0
+>>>>>>> origin/master

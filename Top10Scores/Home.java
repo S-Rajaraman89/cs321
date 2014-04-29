@@ -1,12 +1,5 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.GridBagLayout;
-import javax.swing.JTextPane;
-import java.awt.GridBagConstraints;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
-import java.awt.Insets;
+import javax.swing.*;
+import java.awt.*;
 
 
 public class Home {
