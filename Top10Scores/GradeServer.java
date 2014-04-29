@@ -49,7 +49,7 @@ public class GradeServer implements Runnable{
 			//HashMap<String,String> newestData = new HashMap<String,String>();
             ArrayList<String> data = new ArrayList<String>();
 			while ((line=file.readLine())!= null){
-                System.out.println("Grade server line "+line);
+                //System.out.println("Grade server line "+line);
                 //String itemId = line.substring(0,line.indexOf(","));
 				//newestData.put(itemId, line);
                 data.add(line);
@@ -59,7 +59,7 @@ public class GradeServer implements Runnable{
 			while (i.hasNext()){
 				String key = i.next();
 				if (key.contains(id)){
-                    System.out.println("adding this to return list "+key);
+                    //System.out.println("adding this to return list "+key);
                     result.add(key);
                 }
 			}

@@ -187,11 +187,11 @@ public class Main {
       for(User u:users){
         //Find the quizzes with same ID
          allGrades = GradeServer.lookup(u.getId());
-         System.out.println("Search through this user "+u.getId());
+         //System.out.println("Search through this user "+u.getId());
          for(String a:allGrades){
-         System.out.println("One of the grades "+a);
+        // System.out.println("One of the grades "+a);
             if(a.contains(id)&&topten.size()<10){
-               System.out.println("Adding this string "+a);
+              // System.out.println("Adding this string "+a);
                topten.add(a);
             }
          }
