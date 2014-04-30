@@ -15,7 +15,7 @@ var take_quiz = {
                 }
             }
         }
-        console.log("the quiz object is "+quizJson[indexOfQuiz]);
+        console.log("the quiz object is " + quizJson[indexOfQuiz]);
         var quiz = quizJson[indexOfQuiz];
         console.log(quiz[quizName][0].type);
 
