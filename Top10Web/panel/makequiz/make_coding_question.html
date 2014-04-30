@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<form class="pure-form pure-form-aligned" style = "margin-left: 28%; margin-top: 40px">
+<form class="pure-form pure-form-aligned" style="margin-left: 28%; margin-top: 40px">
     <fieldset>
         <div class="pure-control-group">
             <label for="coding_question">What's the Question</label>
@@ -23,60 +23,61 @@
         </div>
 
         <button class="button-success pure-button" type="button" onclick="saveQuiz()">Save & Exit</button>
-        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question</button>
+        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question
+        </button>
         <button class="button-exit pure-button" type="button" onclick="make_quiz.exit()">Exit</button>
     </fieldset>
 </form>
 
 <script>
-    var questions=[]
-    function saveQuestion(){
+    var questions = []
+    function saveQuestion() {
         console.log("enter save Question");
 
         var $coding_question = $('#coding_question');
         var $coding_input = $('#coding_input');
         var $coding_output = $('#coding_output');
 
-        console.log("question "+$coding_question.val());
-        console.log("coding_input "+$coding_input.val());
-        console.log("coding_output "+$coding_output.val());
+        console.log("question " + $coding_question.val());
+        console.log("coding_input " + $coding_input.val());
+        console.log("coding_output " + $coding_output.val());
 
 
-        var q =  $coding_question.val();
+        var q = $coding_question.val();
         var input = $coding_input.val();
         var output = $coding_output.val();
 
-       if(q.length==0 && input.length==0 && output.length==0){
-         make_quiz.exit();
-         return;
-       }
-       else if(q.length==0 || input.length==0 || output.length==0){
-         alert("fill in all info");
-          return;
+        if (q.length == 0 && input.length == 0 && output.length == 0) {
+            make_quiz.exit();
+            return;
+        }
+        else if (q.length == 0 || input.length == 0 || output.length == 0) {
+            alert("fill in all info");
+            return;
         }
 
         var type = 'coding';
-       var question = {
-         question:q,
-         input:input,
-         output: output,
-         type: type
-             }
+        var question = {
+            question: q,
+            input: input,
+            output: output,
+            type: type
+        }
         console.log("adding to Question");
-       questions.push(question);
+        questions.push(question);
         console.log("added to Question");
-       $coding_question.val("");
-       $coding_input.val("");
-       $coding_output.val("");
+        $coding_question.val("");
+        $coding_input.val("");
+        $coding_output.val("");
     }
-    function saveQuiz(){
+    function saveQuiz() {
         saveQuestion();
         var quizName = window.prompt("What's the quiz name?");
         var x = {}
         x[quizName] = questions;
         console.log(x);
         var quiz = JSON.parse(localStorage['quiz']);
-        console.log('the quiz is '+quiz);
+        console.log('the quiz is ' + quiz);
         quiz.push(x);
         console.log(quiz);
         localStorage['quiz'] = JSON.stringify(quiz);

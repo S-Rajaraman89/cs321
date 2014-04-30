@@ -10,15 +10,18 @@ var json =
     ]
 localStorage['users'] = JSON.stringify(json);
 localStorage['quiz'] = JSON.stringify([]);
+localStorage['results'] = JSON.stringify([]);
 
-function createLoginDisplay(){
+var user;
+
+function createLoginDisplay() {
     $(function () {
         var background = "background-color: #88C8F3;";
         $('#myLayout').w2layout({
             name: 'myLayout',
             panels: [
                 { type: 'top', size: 80, style: background},
-                { type: 'main', style: background, overflow:'auto'}
+                { type: 'main', style: background, overflow: 'auto'}
 
             ]
         });
@@ -36,27 +39,28 @@ function runScript(e) {
     }
 }
 
-function loginUser(){
+function loginUser() {
     var password = document.getElementById('password').value;
     var username = document.getElementById('username').value;
     var users = JSON.parse(localStorage['users']);
 
-    for(var x =0; x<users.length; x++){
-       if(users[x].name === username && users[x].password === password){
-         loggedin();
-       }
-        else{
-           console.log("should show wrong thing")
-           var $wrong = $('#wrong_password');
-           console.log($wrong);
-           $wrong.hide(200);
-           $wrong.show(200);
-       }
+    for (var x = 0; x < users.length; x++) {
+        if (users[x].name === username && users[x].password === password) {
+            user = users[x].name;
+            loggedin();
+        }
+        else {
+            console.log("should show wrong thing")
+            var $wrong = $('#wrong_password');
+            console.log($wrong);
+            $wrong.hide(200);
+            $wrong.show(200);
+        }
     }
 }
 
-function loggedin(){
-    w2ui['myLayout'].load('main', 'panel/option.html','flip-left');
+function loggedin() {
+    w2ui['myLayout'].load('main', 'panel/option.html', 'flip-left');
 }
 
 

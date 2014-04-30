@@ -6,7 +6,7 @@
 
 <body>
 
-<form class="pure-form pure-form-aligned" style = "text-align: center">
+<form class="pure-form pure-form-aligned" style="text-align: center">
     <fieldset>
         <div class="pure-control-group">
             <label for="question">Question</label>
@@ -37,76 +37,75 @@
             <label for="mcAnswer">Correct Answer Number</label>
             <input id="mcAnswer" type="text">
         </div>
-         <br>
+        <br>
         <button class="button-success pure-button" type="button" onclick="saveQuiz()">Save & Exit</button>
-        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question</button>
+        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question
+        </button>
         <button class="button-exit pure-button" type="button" onclick="make_quiz.exit()">Exit</button>
 
     </fieldset>
 </form>
 
 
+<script>
+    var mcquestions = [];
+    function saveQuestion() {
+        var question = $('#question');
+        var mc1 = $('#mc1');
+        var mc2 = $('#mc2');
+        var mc3 = $('#mc3');
+        var mc4 = $('#mc4');
+        var correctAnswer = $('#mcAnswer');
 
+        if (question.val().length == 0 && mc1.val().length == 0 && mc2.val().length == 0
+                && mc3.val().length == 0 && mc4.val().length == 0 && correctAnswer.val().length) {
+            make_quiz.exit();
+            return;
+        }
 
- <script>
-     var mcquestions = [];
-     function saveQuestion(){
-       var question = $('#question');
-       var mc1 = $('#mc1');
-       var mc2 = $('#mc2');
-       var mc3 = $('#mc3');
-       var mc4 = $('#mc4');
-       var correctAnswer = $('#mcAnswer');
-
-         if(question.val().length==0 && mc1.val().length==0 && mc2.val().length==0
-                 && mc3.val().length==0 && mc4.val().length==0 && correctAnswer.val().length){
-             make_quiz.exit();
-             return;
-         }
-
-     else if(question.val().length==0 || mc1.val().length==0 || mc2.val().length==0
-              || mc3.val().length==0 || mc4.val().length==0 || correctAnswer.val().length==0){
-             alert("fill in all data");
-             return;
-      }
+        else if (question.val().length == 0 || mc1.val().length == 0 || mc2.val().length == 0
+                || mc3.val().length == 0 || mc4.val().length == 0 || correctAnswer.val().length == 0) {
+            alert("fill in all data");
+            return;
+        }
         var type = 'mc';
-         var questionQuiz = {
-             question:question.val(),
-             mc1:mc1.val(),
-             mc2: mc2.val(),
-             mc3:mc3.val(),
-             mc4:mc4.val(),
-             mcAnswer:correctAnswer.val(),
-             type: type
-         };
+        var questionQuiz = {
+            question: question.val(),
+            mc1: mc1.val(),
+            mc2: mc2.val(),
+            mc3: mc3.val(),
+            mc4: mc4.val(),
+            mcAnswer: correctAnswer.val(),
+            type: type
+        };
 
-         mcquestions.push(questionQuiz);
+        mcquestions.push(questionQuiz);
 
-         question.val('');
-         mc1.val('');
-         mc2.val('');
-         mc3.val('');
-         mc4.val('');
-         correctAnswer.val('');
+        question.val('');
+        mc1.val('');
+        mc2.val('');
+        mc3.val('');
+        mc4.val('');
+        correctAnswer.val('');
 
-     }
-     function saveQuiz(){
-         saveQuestion();
-         var quizName = window.prompt("What's the quiz name?");
-         var x = {};
-         x[quizName] = mcquestions;
-         console.log(x);
-         var quiz = JSON.parse(localStorage['quiz']);
-         console.log('the quiz is ');
-         console.log(quiz);
-         quiz.push(x);
-         console.log(quiz);
-         localStorage['quiz'] = JSON.stringify(quiz);
+    }
+    function saveQuiz() {
+        saveQuestion();
+        var quizName = window.prompt("What's the quiz name?");
+        var x = {};
+        x[quizName] = mcquestions;
+        console.log(x);
+        var quiz = JSON.parse(localStorage['quiz']);
+        console.log('the quiz is ');
+        console.log(quiz);
+        quiz.push(x);
+        console.log(quiz);
+        localStorage['quiz'] = JSON.stringify(quiz);
 
-         console.log("exiting");
-         make_quiz.exit();
-         console.log("exited");
-     }
- </script>
+        console.log("exiting");
+        make_quiz.exit();
+        console.log("exited");
+    }
+</script>
 </body>
 </html>

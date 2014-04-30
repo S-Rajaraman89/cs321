@@ -4,7 +4,7 @@
     <title></title>
 </head>
 <body>
-<form class="pure-form pure-form-aligned" style = "margin-left: 30px; margin-top: 40px">
+<form class="pure-form pure-form-aligned" style="margin-left: 30px; margin-top: 40px">
     <fieldset>
         <div class="pure-control-group">
             <label for="frq">Question</label>
@@ -17,10 +17,66 @@
         </div>
 
         <button class="button-success pure-button" type="button" onclick="saveQuiz()">Save & Exit</button>
-        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question</button>
+        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question
+        </button>
         <button class="button-exit pure-button" type="button" onclick="make_quiz.exit()">Exit</button>
-        </fieldset>
-    </form>
+    </fieldset>
+</form>
+<script>
+    var questions = [];
+    function saveQuestion() {
+        console.log("enter save Question");
 
+        var _question = $('#frq');
+        var _answer = $('#frqAnswer');
+
+
+        var q = _question.val();
+        var ans = _answer.val();
+        console.log('q is ' + q);
+        console.log('ans is ' + ans);
+
+
+        if (q.length == 0 && ans.length == 0) {
+            make_quiz.exit();
+            return;
+        }
+        else if (q.length == 0 || ans.length == 0) {
+            alert("fill in all info");
+            return;
+        }
+
+        var type = 'frq';
+        var question = {
+            question: q,
+            answer: ans,
+            type: type
+        };
+
+        console.log("adding to Question");
+        questions.push(question);
+        console.log("added to Question");
+        _question.val('');
+        _answer.val('');
+
+    }
+    function saveQuiz() {
+        saveQuestion();
+        var quizName = window.prompt("What's the quiz name?");
+        var x = {};
+        x[quizName] = questions;
+        console.log(x);
+        var quiz = JSON.parse(localStorage['quiz']);
+        console.log('the quiz is ' + quiz);
+        quiz.push(x);
+        console.log(quiz);
+        localStorage['quiz'] = JSON.stringify(quiz);
+
+        console.log("exiting");
+        make_quiz.exit();
+        console.log("exited");
+    }
+
+</script>
 </body>
 </html>
