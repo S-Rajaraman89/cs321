@@ -5,14 +5,29 @@
 </head>
 <body>
 
-<form style="text-align: center">
-    What's the question?<input type="text" style="margin-left: 22px" id="coding_question"> <br>
-    What's the same input? <input type="text"style="margin-left: 10px" id="coding_input"><br>
-    What's the same output? <input type="text" id="coding_output"><br><br>
-    <input type ="button" value="Save & Exit" onclick="saveQuiz()">
-    <input type ="button" value="Save & Create Next Question" onclick="saveQuestion()">
-    <input type ="button" value="Exit" id ="exit" onclick="make_quiz.exit()">
+<form class="pure-form pure-form-aligned" style = "margin-left: 28%; margin-top: 40px">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="coding_question">What's the Question</label>
+            <input id="coding_question" type="text">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="coding_input">Sample input</label>
+            <input id="coding_input" type="text">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="coding_output">Sample Output</label>
+            <input id="coding_output" type="text">
+        </div>
+
+        <button class="button-success pure-button" type="button" onclick="saveQuiz()">Save & Exit</button>
+        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question</button>
+        <button class="button-exit pure-button" type="button" onclick="make_quiz.exit()">Exit</button>
+    </fieldset>
 </form>
+
 <script>
     var questions=[]
     function saveQuestion(){

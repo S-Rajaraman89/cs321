@@ -4,6 +4,23 @@
     <title></title>
 </head>
 <body>
+<form class="pure-form pure-form-aligned" style = "margin-left: 30px; margin-top: 40px">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="frq">Question</label>
+            <input id="frq" type="text">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="frqAnswer">Anwser</label>
+            <input id="frqAnswer" type="text">
+        </div>
+
+        <button class="button-success pure-button" type="button" onclick="saveQuiz()">Save & Exit</button>
+        <button class="button-success pure-button" type="button" onclick="saveQuestion()">Save & Create Next Question</button>
+        <button class="button-exit pure-button" type="button" onclick="make_quiz.exit()">Exit</button>
+        </fieldset>
+    </form>
 
 </body>
 </html>
