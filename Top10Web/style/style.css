@@ -1,0 +1,35 @@
+#myLayout{
+    background-color: #000000;
+}
+#title{
+    text-align: center;
+}
+#loginform{
+    margin-left: 30%;
+    margin-top: 40px;
+}
+#wrong_password{
+    margin-left: 35%;
+    margin-top: 20px;
+    color: red;
+}
+.option{
+    float:left;
+    width: 100px;
+    height: 70px;
+    margin: 10% 5px 5px 20%;
+    text-align: center;
+    background-color: orange;
+    border: 5px #000000 inset;
+    top:50%;
+}
+.option:hover{
+    background-color: #e78f00;
+    border: 5px #000000 inset;
+}
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+.button-exit{
+    background:red;
+}
