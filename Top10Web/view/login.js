@@ -9,8 +9,9 @@ var json =
         }
     ]
 localStorage['users'] = JSON.stringify(json);
+if(typeof localStorage['quiz'] === 'undefined'){
 localStorage['quiz'] = JSON.stringify([]);
-localStorage['results'] = JSON.stringify([]);
+}
 
 var user;
 
@@ -20,7 +21,7 @@ function createLoginDisplay() {
         $('#myLayout').w2layout({
             name: 'myLayout',
             panels: [
-                { type: 'top', size: 80, style: background},
+                { type: 'top', size:"90px", style: background},
                 { type: 'main', style: background, overflow: 'auto'}
 
             ]
@@ -52,8 +53,7 @@ function loginUser() {
         else {
             console.log("should show wrong thing")
             var $wrong = $('#wrong_password');
-            console.log($wrong);
-            $wrong.hide(200);
+            $wrong.hide();
             $wrong.show(200);
         }
     }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="myGrid" style="height: 450px"></div>
+</body>
+<script>
+    var records = [];
+
+    if (typeof localStorage['results'] === 'undefined') {
+        localStorage['results'] = JSON.stringify([]);
+        console.log("make results in local")
+    }
+    console.log("about to parse local")
+    var localRecords = JSON.parse(localStorage['results']);
+    console.log("parsed local")
+    console.log(localRecords);
+
+    for (var x = 0; x <localRecords.length; x++) {
+        var quiz = localRecords[x];
+        console.log(quiz);
+        if (user === quiz.username) {
+            quiz['recid']  = x;
+            console.log('the final quiz is\n '+quiz);
+            records.push(quiz);
+
+        }
+    }
+
+
+    console.log("creating grid");
+    $('#myGrid').w2grid({
+        name: 'myGrid',
+        columns: [
+            { field: 'username', caption: 'Username', size: '30%' },
+            { field: 'quizname', caption: 'Quiz name', size: '30%' },
+            { field: 'correct', caption: 'Correct', size: '40%' }
+        ],
+        records: records
+    });
+    console.log("created grid");
+</script>
+</html>
