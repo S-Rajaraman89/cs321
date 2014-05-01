@@ -26,7 +26,7 @@ var take_quiz = {
             take_quiz.takeFRQ(quiz);
         }
         else if (quiz[quizName][0].type === 'mc') {
-            alert('mc question');
+            take_quiz.takeMC(quiz);
         }
     },
 
@@ -34,6 +34,11 @@ var take_quiz = {
         w2ui['myLayout'].load('main', 'panel/takequiz/take_quiz_frq.html');
         take_quiz.frq = quiz;
     },
-    frq: 0
+    frq: 0,
+    mc: 0,
+    takeMC: function (quiz) {
+        w2ui['myLayout'].load('main', 'panel/takequiz/take_quiz_mc.html');
+        take_quiz.mc = quiz;
+    }
 
 };

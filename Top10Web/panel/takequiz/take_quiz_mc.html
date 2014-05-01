@@ -2,8 +2,93 @@
 <html>
 <head>
     <title></title>
+
+
 </head>
 <body>
+<form class="pure-form pure-form-aligned" style="margin-left: 30%; margin-top: 40px">
+    <fieldset>
+        <div class ='questions'>
+            <p id = 'question'>Question:</p>
+            <p id = 'mc1' class="mc"></p>
+            <p id = 'mc2' class="mc"></p>
+            <p id = 'mc3' class="mc"></p>
+            <p id = 'mc4' class="mc"></p>
+        </div>
 
+        <div class="pure-control-group">
+            <label for="mcAnswer">Anwser</label>
+            <input id="mcAnswer" type="text">
+        </div>
+
+        <button class="button-success pure-button" type="button" onclick="submitQuestion()">Submit</button>
+        <button class="button-exit pure-button" type="button" onclick="exit()">Exit</button>
+    </fieldset>
+</form>
+<script>
+    var quizcounter = 0;
+    var correct = 0;
+    var mc1 = $('#mc1');
+    var mc2 = $('#mc2');
+    var mc3 = $('#mc3');
+    var mc4 = $('#mc4');
+    console.log("the mc quiz is "+take_quiz.mc)
+    var quizname = Object.keys(take_quiz.mc)[0];
+    var answer;
+
+    function displayquestion() {
+        if (quizcounter >= take_quiz.mc[quizname].length) {
+            //display results, exit quiz
+            alert("you got " + correct + " questions correct!");
+            var results = {
+                quizname: quizname,
+                username: user,
+                correct: correct
+            };
+
+
+            if (typeof localStorage['results'] === 'undefined') {
+                localStorage['results'] = JSON.stringify([]);
+                console.log('created results in localStorage');
+            }
+
+            var jsonOfQuiz = JSON.parse(localStorage['results'])
+            jsonOfQuiz.push(results);
+            localStorage['results'] = JSON.stringify(jsonOfQuiz);
+            exit();
+        }
+        else {
+            //console.log('take quiz length ' + take_quiz.frq[quizname].length);
+            //console.log("correct " + correct);
+            var quiz = (take_quiz.mc[quizname]);
+            //console.log("Take quiz frq\n");
+            //console.log(take_quiz.frq);
+            //console.log("the question is\n" + quiz[quizcounter].question);
+
+            mc1.html('1. '+quiz[quizcounter].mc1);
+            mc2.html('2. '+quiz[quizcounter].mc2);
+            mc3.html('3. '+quiz[quizcounter].mc3);
+            mc4.html('4. '+quiz[quizcounter].mc4);
+
+            answer = quiz[quizcounter].answer;
+            $('#mcAnswer').val('');
+            quizcounter++;
+        }
+    }
+
+    function submitQuestion() {
+        var ans = $('#mcAnswer').val();
+        if (ans === answer) {
+            correct++;
+        }
+        displayquestion();
+    }
+    function exit() {
+        make_quiz.exit();
+    }
+    displayquestion();
+
+
+</script>
 </body>
 </html>
