@@ -6,11 +6,16 @@ var json =
         {
             name: "jsmith",
             password: "passy"
+        },
+        {
+            name: "matt",
+            password: "pass"
         }
+
     ]
 localStorage['users'] = JSON.stringify(json);
-if(typeof localStorage['quiz'] === 'undefined'){
-localStorage['quiz'] = JSON.stringify([]);
+if (typeof localStorage['quiz'] === 'undefined') {
+    localStorage['quiz'] = JSON.stringify([]);
 }
 
 var user;
@@ -21,8 +26,8 @@ function createLoginDisplay() {
         $('#myLayout').w2layout({
             name: 'myLayout',
             panels: [
-                { type: 'top', size:"90px", style: background},
-                { type: 'main', style: background, overflow: 'auto'}
+                { type: 'top', size: 120, style: background},
+                { type: 'main', size: 400, style: background, overflow: 'auto'}
 
             ]
         });
@@ -57,10 +62,11 @@ function loginUser() {
             $wrong.show(200);
         }
     }
-
 }
 
 function loggedin() {
+    $('#home_button').show();
+    $('#sign_button').show();
     w2ui['myLayout'].load('main', 'panel/option.html', 'flip-left');
 }
 

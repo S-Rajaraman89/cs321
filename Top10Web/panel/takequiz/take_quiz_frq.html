@@ -7,7 +7,9 @@
 <form class="pure-form pure-form-aligned" style="margin-left: 30%; margin-top: 40px">
     <fieldset>
         <div class="pure-control-group">
-            <p id="frquestion"></p>
+            <label for="frqAnswer">Question:</label>
+
+            <p id="frquestion" style="margin-left: 25%"></p>
         </div>
 
         <div class="pure-control-group">
@@ -57,6 +59,7 @@
 
             questionP.html(quiz[quizcounter].question);
             answer = quiz[quizcounter].answer;
+            $('#frqAnswer').val('');
             quizcounter++;
         }
     }

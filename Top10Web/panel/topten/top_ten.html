@@ -4,11 +4,11 @@
     <title></title>
 </head>
 <body>
-<div id="myGrid" style="height: 450px"></div>
-
+<div id="toptengrid" style="height: 450px"></div>
+</body>
 <script>
-    if (!(typeof w2ui['myGrid'] === 'undefined')) {
-        w2ui['myGrid'].destroy();
+    if (!(typeof w2ui['toptengrid'] === 'undefined')) {
+        w2ui['toptengrid'].destroy();
     }
     var records = [];
 
@@ -24,7 +24,7 @@
     for (var x = 0; x < localRecords.length; x++) {
         var quiz = localRecords[x];
         console.log(quiz);
-        if (user === quiz.username) {
+        if (top_ten.quizname === quiz.quizname) {
             quiz['recid'] = x;
             console.log('the final quiz is\n ' + quiz);
             records.push(quiz);
@@ -33,8 +33,8 @@
     }
 
     console.log("creating grid");
-    $('#myGrid').w2grid({
-        name: 'myGrid',
+    $('#toptengrid').w2grid({
+        name: 'toptengrid',
         columns: [
             { field: 'username', caption: 'Username', size: '30%' },
             { field: 'quizname', caption: 'Quiz name', size: '30%' },
@@ -44,5 +44,4 @@
     });
 
 </script>
-</body>
 </html>
